@@ -1941,12 +1941,16 @@ function confirmDate() {
     }
 
 
-    const dateObject =
-        new Date(
-            selectedDate +
-            "T19:00:00"
-        );
+const [year, month, day] = selectedDate.split("-");
 
+const dateObject = new Date(
+    Number(year),
+    Number(month) - 1,
+    Number(day),
+    19,
+    0,
+    0
+);
 
     const formattedDate =
         dateObject.toLocaleDateString(
@@ -2199,12 +2203,16 @@ function startCountdown(targetDate) {
 
 function openWhatsApp() {
 
-    const dateObject =
-        new Date(
-            selectedDate +
-            "T19:00:00"
-        );
+ const [year, month, day] = selectedDate.split("-");
 
+const dateObject = new Date(
+    Number(year),
+    Number(month) - 1,
+    Number(day),
+    19,
+    0,
+    0
+);
 
     const formattedDate =
         dateObject.toLocaleDateString(
