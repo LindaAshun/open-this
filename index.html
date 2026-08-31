@@ -1130,7 +1130,29 @@ function dateSelected() {
 
     const dateInput = document.getElementById("date");
 
+    const minimumDate = "2026-09-17";
+
     if (!dateInput.value) {
+        document
+            .getElementById("confirmButton")
+            .classList.add("hidden");
+
+        return;
+    }
+
+    if (dateInput.value < minimumDate) {
+
+        alert(
+            "Our first date can't be before September 17, 2026. ❤️"
+        );
+
+        dateInput.value = "";
+        selectedDate = "";
+
+        document
+            .getElementById("confirmButton")
+            .classList.add("hidden");
+
         return;
     }
 
@@ -1172,6 +1194,17 @@ function createDateFromInput(dateString) {
 /* CONFIRM DATE */
 
 function confirmDate() {
+
+        const minimumDate = "2026-09-17";
+
+    if (selectedDate < minimumDate) {
+
+        alert(
+            "Please choose September 17, 2026 or a later date. ❤️"
+        );
+
+        return;
+    }
 
     if (!selectedLocation) {
 
